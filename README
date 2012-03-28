@@ -1,0 +1,43 @@
+FAP (Fabulous APRS Parser) library for Lua 5.1
+
+(c) 2012 Jorj Bauer <jorj@jorj.org>
+
+This is released under a BSD license; see the file LICENSE for details.
+
+**************************
+Installation instructions:
+**************************
+
+0. Install libfap (http://pakettiradio.net/libfap/).
+
+1. Edit the Makefile. You'll need to comment out the architecture blocks
+   that don't pertain to your platform. (As of this writing, this package 
+   works on MacOS 10.7 and Debian Squeeze. This will likely function on 
+   other platforms as well, but I have not explicitly tested on them. If you 
+   have a Makefile configuration that works on another platform, send me 
+   email with your configuration so that I may include it in a future 
+   verison.)
+
+2. make
+
+3. sudo make install
+
+4. Enjoy.
+
+
+*****
+Bugs:
+*****
+
+* To install this properly, you must edit the Makefile. This should be 
+  abstracted into autoconf (or something lighter weight to accomplish the 
+  same thing).
+
+* There is no test suite.
+
+* Installation has been tested under MacOS 10.7 and Linux
+  (specifically, Debian Squeeze). Other platforms should be tested.
+
+* Much of this code is repurposed from my lua-cyrussasl module. Which
+  means it should be abstracted in some common way, rather than
+  copy-and-pasted.
