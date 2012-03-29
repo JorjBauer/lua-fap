@@ -111,6 +111,16 @@ static int lfap_parseaprs(lua_State *l)
   /* Copy the contents of 'p' in to a new table, to be returned */
   lua_newtable(l);
 
+  /* First, the return code from the API call */
+  lua_pushnumber(l, p->error_code ? *p->error_code : 0);
+  lua_setfield(l, -2, "error_code");
+  if (p->error_code) {
+    char msg[256];
+    fap_explain_error(*p->error_code, msg);
+    lua_pushstring(l, msg);
+    lua_setfield(l, -2, "error_message");
+  }
+
   /* Content that always exists */
   PUSHSTR(header);
   PUSHSTR(body);
